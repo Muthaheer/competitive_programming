@@ -5,6 +5,7 @@ def largestRect(hist, n):
     maxRect = 0
     i = 0
     while i < n:
+        print('before', stack)
         if len(stack) == 0 or hist[i] >= hist[stack[-1]]:
             stack.append(i)
             i += 1
@@ -15,6 +16,8 @@ def largestRect(hist, n):
             else:
                 rectSize = hist[t] * i
             maxRect = max(rectSize, maxRect)
+
+        print('after', stack, maxRect)
 
     while len(stack):
         t = stack.pop()
